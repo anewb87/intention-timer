@@ -7,13 +7,27 @@
   </head>
   <body>
     <header>
-
+      <h1>INTENTION TIMER</h1>
     </header>
     <main>
-      <section>
-        
+      <section class="new-activity">
+        <h2>New Activity</h2>
+        <form>
+          <p class="select-category">Select a category:</p>
+          <button class="category-button study-button"><img scr="./assets/study.svg">Study</button>
+          <button class="category-button meditate-button">Meditate</button>
+          <button class="category-button exercise-button">Exercise</button>
+          <label for="activity-input" class="accomplish-text">What would you like to accomplish during this time?</label>
+          <input type="text" id="activity-input"/>
+          <label for="minutes-input" class="set-minutes">Minutes</label>
+          <input type="number" id="minutes-input"/>
+          <label for="seconds-input" class="set-seconds">Seconds</label>
+          <input type="number" id="seconds-input"/>
+          <button class="white-button start-activity-button">START ACTIVITY</button>
+        </form>
       </section>
       <section>
+        <h2>Past Activities</h2>
 
       </section>
     </main>
