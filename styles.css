@@ -1,3 +1,18 @@
-body {
-  background-color: gray;
+*{
+  font: 'Monserrat'
+}
+
+header {
+  background-color: #46424D;
+  color: #FFF
+}
+
+main {
+  background-color: #2B2733;
+  color: #CBC9CF
+}
+
+form {
+  background-color: #46424D;
+  color: #FFF
 }
