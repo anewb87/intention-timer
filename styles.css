@@ -22,7 +22,7 @@ main {
   height: 1000px;
 }
 
-form {
+div {
   background-color: #46424D;
   color: #FFF;
   height: 57%;
@@ -127,4 +127,23 @@ form {
 
 .start-activity-button {
 
+}
+
+.hidden {
+  display: none;
+}
+
+.study-button-color {
+  border-color: #B3FD78;
+  color: #B3FD78
+}
+
+.meditate-button-color {
+  border-color: #C278FD;
+  color: #C278FD;
+}
+
+.exercise-button-color {
+  border-color: #FD8078;
+  color: #FD8078;
 }

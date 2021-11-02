@@ -12,12 +12,12 @@
     <main>
       <section class="new-activity-container">
         <h2>New Activity</h2>
-        <form>
+        <div>
           <p class="select-category">Select a category:</p>
           <section class="category-container">
-            <button class="category-button study-button"><img class="button-image" src="./assets/study.svg" alt="Lightbulb Image"><br>Study</button>
-            <button class="category-button meditate-button"><img class="button-image" src="./assets/meditate.svg" alt="Lotus Image"><br>Meditate</button>
-            <button class="category-button exercise-button"><img class="button-image" src="./assets/exercise.svg" alt="Running Shoes Image"><br>Exercise</button>
+            <button class="category-button study-button"><img class="button-image study-img" src="./assets/study.svg" alt="Lightbulb Image"><img class="button-image study-img-active hidden" src="./assets/study-active.svg" alt="Active Lightbulb Image"><br>Study</button>
+            <button class="category-button meditate-button"><img class="button-image meditate-img" src="./assets/meditate.svg" alt="Lotus Image"><img class="button-image meditate-img-active hidden"  src="./assets/meditate-active.svg" alt="Lotus Image"><br>Meditate</button>
+            <button class="category-button exercise-button"><img class="button-image exercise-img" src="./assets/exercise.svg" alt="Running Shoes Image"><img class="button-image exercise-img-active hidden" src="./assets/exercise-active.svg" alt="Running Shoes Image"><br>Exercise</button>
           </section>
             <section>
               <label for="activity-input" class="accomplish-text">What would you like to accomplish during this time?</label>
@@ -34,7 +34,7 @@
             </section>
           </section>
           <button class="white-button start-activity-button">START ACTIVITY</button>
-        </form>
+        </div>
       </section>
       <section class="past-activities-container">
         <h2>Past Activities</h2>
