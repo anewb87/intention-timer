@@ -27,6 +27,11 @@ form {
   color: #FFF;
   height: 57%;
   padding: 2% 15% 2% 15%;
+  box-shadow: 5px 5px 2px #26222D;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .new-activity-container {
@@ -43,6 +48,42 @@ form {
   padding-right: 2%;
 }
 
+.accomplish-input{
+  width: 100%;
+  background-color: #46424D;
+  border: none;
+  border-bottom: 1px solid #CBC9CF;
+  font-size: 40px;
+  color: #CBC9CF;
+}
+
+.number-input {
+  width: 100%;
+  background-color: #46424D;
+  border: none;
+  border-bottom: 1px solid #CBC9CF;
+  font-size: 30px;
+  line-height: 40px;
+  color: #CBC9CF;
+}
+
+.minutes-container {
+  width: 40%;
+  height: 40%;
+}
+
+.seconds-container {
+  width: 40%;
+  height: 40%;
+}
+
+.seconds-input {
+  width: 100%;
+  background-color: #46424D;
+  border: none;
+  border-bottom: 1px solid #CBC9CF;
+}
+
 .no-logged-activities {
   text-align: center;
   padding-top: 3%
@@ -55,9 +96,10 @@ form {
 
 .category-button {
   background-color: #46424D;
-  border: 1px solid #CBC9CF;
-  border-radius: 3px;
-  width: 25%;
+  border: 2px solid #CBC9CF;
+  border-radius: 5px;
+  width: 27%;
+  padding: 1% 0% 1% 0%;
   color: #CBC9CF;
   font-size: 120%;
 }
@@ -72,4 +114,17 @@ form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.white-button {
+  background-color: #CBC9CF;
+  border: none;
+  border-radius: 3px;
+  padding: 1.5% 5% 1.5% 5%;
+  color: #46424D;
+  font-size: 20px;
+}
+
+.start-activity-button {
+
 }
