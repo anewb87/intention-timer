@@ -1,3 +1,65 @@
 body {
-  background-color: gray;
+  font-family: Montserrat;
+  margin: 0;
+}
+
+header {
+  background-color: #46424D;
+  color: #FFF;
+  margin: 0;
+  padding: 0.5%;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #46424D;
+  color: #CBC9CF;
+}
+
+form {
+  background-color: #46424D;
+  color: #FFF
+}
+
+.new-activity-container {
+  background-color: #2B2733;
+  width: 67%;
+  padding: 0% 2% 2% 2%
+}
+
+.past-activities-container {
+  background-color: #2B2733;
+  width: 33%;
+  border-left: 3px solid #46424D;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.no-logged-activities {
+  text-align: center;
+  padding-top: 3%
+}
+
+.button-image {
+  max-width: 40px;
+  max-height: auto;
+}
+
+.category-button {
+  background-color: #46424D
+}
+
+.category-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
