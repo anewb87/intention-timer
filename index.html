@@ -10,14 +10,14 @@
       <h1>INTENTION TIMER</h1>
     </header>
     <main>
-      <section class="new-activity">
+      <section class="new-activity-container">
         <h2>New Activity</h2>
         <form>
           <p class="select-category">Select a category:</p>
           <section class="category-container">
-            <button class="category-button study-button"><img src="./assets/study.svg" alt="Lightbulb Image"><br>Study</button>
-            <button class="category-button meditate-button"><img src="./assets/meditate.svg" alt="Lotus Image"><br>Meditate</button>
-            <button class="category-button exercise-button"><img src="./assets/exercise.svg" alt="Running Shoes Image"><br>Exercise</button>
+            <button class="category-button study-button"><img class="button-image" src="./assets/study.svg" alt="Lightbulb Image"><br>Study</button>
+            <button class="category-button meditate-button"><img class="button-image" src="./assets/meditate.svg" alt="Lotus Image"><br>Meditate</button>
+            <button class="category-button exercise-button"><img class="button-image" src="./assets/exercise.svg" alt="Running Shoes Image"><br>Exercise</button>
           </section>
           <label for="activity-input" class="accomplish-text">What would you like to accomplish during this time?</label>
           <input type="text" id="activity-input"/>
@@ -30,7 +30,7 @@
           <button class="white-button start-activity-button">START ACTIVITY</button>
         </form>
       </section>
-      <section>
+      <section class="past-activities-container">
         <h2>Past Activities</h2>
         <p class="no-logged-activities">You haven't logged any activities yet.<br>
           Complete the form to the left to get started!</p>
