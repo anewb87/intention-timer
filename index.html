@@ -22,15 +22,18 @@
             <section>
               <label for="activity-input" class="accomplish-text">What would you like to accomplish during this time?</label>
               <input class="accomplish-input" type="text" id="activity-input"/>
+              <p class="description-error error hidden"><img class="warning-img" src="./assets/warning.svg" alt="error image"/>A description is required.</p>
             </section>
           <section class="input-container">
             <section class="minutes-container">
               <label for="minutes-input" class="set-minutes">Minutes</label><br/>
               <input class="number-input" type="number" id="minutes-input"/>
+              <p class="minutes-error error hidden"><img class="warning-img" src="./assets/warning.svg" alt="error image"/>Minutes are required.</p>
             </section>
             <section class="seconds-container">
               <label for="seconds-input" class="set-seconds">Seconds</label><br/>
               <input class="number-input" type="number" id="seconds-input"/>
+              <p class="seconds-error error hidden"><img class="warning-img" src="./assets/warning.svg" alt="error image"/>Seconds are required.</p>
             </section>
           </section>
           <button class="white-button start-activity-button">START ACTIVITY</button>

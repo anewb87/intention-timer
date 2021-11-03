@@ -147,3 +147,14 @@ div {
   border-color: #FD8078;
   color: #FD8078;
 }
+
+.error {
+  color: #EFB7EC;
+  font-size: 15px;
+  border-color: #EFB7EC;
+}
+.warning-img {
+  max-width: 15px;
+  max-height: auto;
+  margin-right: 5px;
+}
