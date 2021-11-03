@@ -1,3 +1,6 @@
+var savedActivites = [];
+
+
 var studyBtn = document.querySelector(".study-button");
 var meditateBtn = document.querySelector(".meditate-button");
 var exerciseBtn = document.querySelector(".exercise-button");
@@ -15,17 +18,31 @@ var activityError = document.querySelector(".description-error");
 var minutesError = document.querySelector(".minutes-error");
 var secondsError = document.querySelector(".seconds-error");
 
-studyBtn.addEventListener("click", activateStudyColor);
-meditateBtn.addEventListener("click", activateMeditateColor);
-exerciseBtn.addEventListener("click", activateExerciseColor);
+var currentActivity = {};
+
+var activityCategory = '';
+
+studyBtn.addEventListener("click", activateStudy);
+meditateBtn.addEventListener("click", activateMeditate);
+exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 
 function startActivity() {
-  throwError()
+  createActivity();
+  throwError();
 }
-// change colors
-// add in error image + text
-//
+
+function createActivity() {
+  currentActivity = {};
+  currentActivity = new Activity (activityCategory, activityInput.value, minutesInput.value, secondsInput.value);
+  console.log(currentActivity);
+}
+
+function assignCategory(category) {
+  activityCategory = category;
+}
+
+
 function addErrorStyling(input) {
   input.classList.add("error");
 }
@@ -76,19 +93,22 @@ function changeImgColor(whiteImg, activeImg) {
 };
 
 
-function activateStudyColor() {
+function activateStudy() {
   studyBtn.classList.add("study-button-color");
   changeImgColor(studyImg, studyImgActive)
+  assignCategory("Study");
 };
 
 
-function activateMeditateColor() {
+function activateMeditate() {
   meditateBtn.classList.add("meditate-button-color");
-  changeImgColor(meditateImg, meditateImgActive)
+  changeImgColor(meditateImg, meditateImgActive);
+  assignCategory("Meditate");
 };
 
 
-function activateExerciseColor() {
+function activateExercise() {
   exerciseBtn.classList.add("exercise-button-color");
   changeImgColor(exerciseImg, exerciseImgActive);
+  assignCategory("Exercise");
 };
