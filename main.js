@@ -17,6 +17,8 @@ var secondsInput = document.getElementById("seconds-input");
 var activityError = document.querySelector(".description-error");
 var minutesError = document.querySelector(".minutes-error");
 var secondsError = document.querySelector(".seconds-error");
+var currentActivity = document.querySelector(".current-activity");
+var newActivity = document.querySelector(".new-activity")
 
 var currentActivity = {};
 
@@ -27,29 +29,37 @@ meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 
+function viewCurrentActivity() {
+  show(currentActivity);
+  hide(newActivity);
+//fix this!
+
+};
+
 function startActivity() {
-  createActivity();
   throwError();
-}
+  createActivity();
+  viewCurrentActivity()
+};
 
 function createActivity() {
   currentActivity = {};
   currentActivity = new Activity (activityCategory, activityInput.value, minutesInput.value, secondsInput.value);
-  console.log(currentActivity);
-}
+  //console.log(currentActivity);
+};
 
 function assignCategory(category) {
   activityCategory = category;
-}
+};
 
 
 function addErrorStyling(input) {
   input.classList.add("error");
-}
+};
 
 function removeErrorStyling(input) {
   input.classList.remove("error");
-}
+};
 
 function throwError() {
   if (!activityInput.value) {
@@ -76,7 +86,7 @@ function removeError() {
     removeErrorStyling(secondsInput);
     hide(secondsError);
   }
-}
+};
 
 function show(element) {
   element.classList.remove("hidden")

@@ -34,7 +34,7 @@ div {
   justify-content: space-evenly;
 }
 
-.new-activity-container {
+.activity-container {
   background-color: #2B2733;
   width: 67%;
   padding: 0% 2% 2% 2%
@@ -153,6 +153,7 @@ div {
   font-size: 15px;
   border-color: #EFB7EC;
 }
+
 .warning-img {
   max-width: 15px;
   max-height: auto;
