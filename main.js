@@ -18,8 +18,10 @@ var activityError = document.querySelector(".description-error");
 var minutesError = document.querySelector(".minutes-error");
 var secondsError = document.querySelector(".seconds-error");
 var currentActivityView = document.querySelector(".current-activity");
-var newActivityView = document.querySelector(".new-activity")
-var startTimerBtn = document.querySelector(".start-timer-button")
+var newActivityView = document.querySelector(".new-activity");
+var startTimerBtn = document.querySelector(".start-timer-button");
+var descriptionDisplay = document.querySelector(".current-description");
+var timerDisplay = document.querySelector(".timer");
 
 var currentActivity = {};
 
@@ -30,6 +32,12 @@ meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 startTimerBtn.addEventListener("click", start);
+
+function updateDescription() {
+  descriptionDisplay.innerText = activityInput.value;
+}
+
+
 
 function start() {
   currentActivity.countdown(currentActivity.minutes, currentActivity.seconds);
@@ -52,6 +60,7 @@ function startActivity() {
   throwError();
   createActivity();
   viewCurrentActivity(currentActivityView, newActivityView);
+  updateDescription();
 };
 
 function createActivity() {

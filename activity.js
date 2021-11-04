@@ -17,7 +17,9 @@ class Activity {
       minutes = minutes - 1;
       seconds = 59;
     } else if (minutes == 0 && seconds == 0) {
-       return document.querySelector(".start-timer-button").innerText = "COMPLETE!";
+      minutes = minutes.toString().padStart(2, '0');
+      seconds = seconds.toString().padStart(2, '0');
+      return document.querySelector(".start-timer-button").innerText = "COMPLETE!";
     }
      minutes = minutes.toString().padStart(2, '0');
      seconds = seconds.toString().padStart(2, '0');
