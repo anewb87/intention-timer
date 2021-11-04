@@ -14,9 +14,9 @@
         <h2>Current Activity</h2>
           <div>
             <section class="category-container timer-container">
-              <h3 class="current-description">Activity Placeholder</h3>
+              <h3 class="current-description"></h3>
               <h1 class="timer"></h1>
-              <button class="start-timer-button">START</button>
+              <button class="start-timer-button text-color">START</button>
             </section>
           </div>
       </section>
@@ -37,12 +37,12 @@
           <section class="input-container">
             <section class="minutes-container">
               <label for="minutes-input" class="set-minutes">Minutes</label><br/>
-              <input class="number-input" type="number" id="minutes-input"/>
+              <input class="number-input" type="number" id="minutes-input" max="60" min="0"/>
               <p class="minutes-error error hidden"><img class="warning-img" src="./assets/warning.svg" alt="error image"/>Minutes are required.</p>
             </section>
             <section class="seconds-container">
               <label for="seconds-input" class="set-seconds">Seconds</label><br/>
-              <input class="number-input" type="number" id="seconds-input"/>
+              <input class="number-input" type="number" id="seconds-input" max="59" min="0"/>
               <p class="seconds-error error hidden"><img class="warning-img" src="./assets/warning.svg" alt="error image"/>Seconds are required.</p>
             </section>
           </section>

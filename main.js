@@ -18,8 +18,10 @@ var activityError = document.querySelector(".description-error");
 var minutesError = document.querySelector(".minutes-error");
 var secondsError = document.querySelector(".seconds-error");
 var currentActivityView = document.querySelector(".current-activity");
-var newActivityView = document.querySelector(".new-activity")
-var startTimerBtn = document.querySelector(".start-timer-button")
+var newActivityView = document.querySelector(".new-activity");
+var startTimerBtn = document.querySelector(".start-timer-button");
+var descriptionDisplay = document.querySelector(".current-description");
+var timerDisplay = document.querySelector(".timer");
 
 var currentActivity = {};
 
@@ -30,6 +32,16 @@ meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 startTimerBtn.addEventListener("click", start);
+
+function updateDescription() {
+  descriptionDisplay.innerText = activityInput.value;
+}
+
+function updateTimer() {
+  currentActivity.minutes = currentActivity.minutes.toString().padStart(2, '0');
+  currentActivity.seconds = currentActivity.seconds.toString().padStart(2, '0');
+  timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
+}
 
 function start() {
   currentActivity.countdown(currentActivity.minutes, currentActivity.seconds);
@@ -52,7 +64,11 @@ function startActivity() {
   throwError();
   createActivity();
   viewCurrentActivity(currentActivityView, newActivityView);
+  updateDescription();
+  updateTimer();
 };
+
+
 
 function createActivity() {
   currentActivity = {};
@@ -113,6 +129,7 @@ function activateStudy() {
   studyBtn.classList.add("study-button-color");
   changeImgColor(studyImg, studyImgActive)
   assignCategory("Study");
+  startTimerBtn.classList.add("study-button-color");
 };
 
 
@@ -120,6 +137,7 @@ function activateMeditate() {
   meditateBtn.classList.add("meditate-button-color");
   changeImgColor(meditateImg, meditateImgActive);
   assignCategory("Meditate");
+  startTimerBtn.classList.add("meditate-button-color");
 };
 
 
@@ -127,4 +145,5 @@ function activateExercise() {
   exerciseBtn.classList.add("exercise-button-color");
   changeImgColor(exerciseImg, exerciseImgActive);
   assignCategory("Exercise");
+  startTimerBtn.classList.add("exercise-button-color");
 };
