@@ -1,11 +1,16 @@
+html {
+  font-family: Montserrat
+}
+
 body {
-  font-family: Montserrat;
+  font-weight: 400;
   font-size: 125%;
   margin: 0;
   overflow-y: hidden;
 }
 
 header {
+  font-weight: 300;
   background-color: #46424D;
   color: #FFF;
   margin: 0;
@@ -20,6 +25,19 @@ main {
   background-color: #46424D;
   color: #CBC9CF;
   height: 1000px;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+h3 {
+  font-weight: 300;
+  margin: 0px;
 }
 
 div {
@@ -126,8 +144,40 @@ div {
 }
 
 .start-activity-button {
-
+  font-family: Montserrat;
+  font-weight: 400;
 }
+
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 100px;
+  margin: 0px;
+  padding-bottom: 60px;
+}
+
+.timer-words-container {
+  display: flex;
+}
+
+.start-timer-button {
+  background-color: #46424D;
+  color: #CBC9CF;
+  border-radius: 50%;
+  border: 2px solid #B3FD78;
+  padding: 16% 12%;
+  font-family: Montserrat;
+  font-weight: 300;
+  font-size: 25px;
+}
+
 
 .hidden {
   display: none;

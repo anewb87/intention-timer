@@ -17,8 +17,9 @@ var secondsInput = document.getElementById("seconds-input");
 var activityError = document.querySelector(".description-error");
 var minutesError = document.querySelector(".minutes-error");
 var secondsError = document.querySelector(".seconds-error");
-var currentActivity = document.querySelector(".current-activity");
-var newActivity = document.querySelector(".new-activity")
+var currentActivityView = document.querySelector(".current-activity");
+var newActivityView = document.querySelector(".new-activity")
+var startTimerBtn = document.querySelector(".start-timer-button")
 
 var currentActivity = {};
 
@@ -29,17 +30,23 @@ meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 
-function viewCurrentActivity() {
-  show(currentActivity);
-  hide(newActivity);
-//fix this!
+function show(element) {
+  element.classList.remove("hidden")
+};
 
+function hide(element) {
+  element.classList.add("hidden")
+};
+
+function viewCurrentActivity(view, vanish) {
+  show(view);
+  hide(vanish);
 };
 
 function startActivity() {
   throwError();
   createActivity();
-  viewCurrentActivity()
+  viewCurrentActivity(currentActivityView, newActivityView);
 };
 
 function createActivity() {
@@ -88,13 +95,7 @@ function removeError() {
   }
 };
 
-function show(element) {
-  element.classList.remove("hidden")
-};
 
-function hide(element) {
-  element.classList.add("hidden")
-};
 
 
 function changeImgColor(whiteImg, activeImg) {
