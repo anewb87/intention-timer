@@ -68,6 +68,8 @@ function startActivity() {
   updateTimer();
 };
 
+
+
 function createActivity() {
   currentActivity = {};
   currentActivity = new Activity (activityCategory, activityInput.value, minutesInput.value, secondsInput.value);
@@ -127,6 +129,7 @@ function activateStudy() {
   studyBtn.classList.add("study-button-color");
   changeImgColor(studyImg, studyImgActive)
   assignCategory("Study");
+  startTimerBtn.classList.add("study-button-color");
 };
 
 
@@ -134,6 +137,7 @@ function activateMeditate() {
   meditateBtn.classList.add("meditate-button-color");
   changeImgColor(meditateImg, meditateImgActive);
   assignCategory("Meditate");
+  startTimerBtn.classList.add("meditate-button-color");
 };
 
 
@@ -141,4 +145,5 @@ function activateExercise() {
   exerciseBtn.classList.add("exercise-button-color");
   changeImgColor(exerciseImg, exerciseImgActive);
   assignCategory("Exercise");
+  startTimerBtn.classList.add("exercise-button-color");
 };

@@ -148,7 +148,6 @@ div {
   font-weight: 400;
 }
 
-
 .timer-container {
   display: flex;
   flex-direction: column;
@@ -169,18 +168,12 @@ div {
 
 .start-timer-button {
   background-color: #46424D;
-  color: #CBC9CF;
   border-radius: 50%;
-  border: 2px solid #B3FD78;
+  border: 2px solid;
   padding: 16% 12%;
   font-family: Montserrat;
   font-weight: 300;
   font-size: 25px;
-}
-
-
-.hidden {
-  display: none;
 }
 
 .study-button-color {
@@ -198,6 +191,11 @@ div {
   color: #FD8078;
 }
 
+.text-color {
+  color: #CBC9CF;
+
+}
+
 .error {
   color: #EFB7EC;
   font-size: 15px;
@@ -208,4 +206,8 @@ div {
   max-width: 15px;
   max-height: auto;
   margin-right: 5px;
+}
+
+.hidden {
+  display: none;
 }
