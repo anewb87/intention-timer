@@ -19,8 +19,7 @@ class Activity {
     } else if (minutes == 0 && seconds == 0) {
       minutes = minutes.toString().padStart(2, '0');
       seconds = seconds.toString().padStart(2, '0');
-      // markComplete();
-      return alert("COMPLETE!")
+      return document.querySelector(".start-timer-button").innerText = "COMPLETE!";
     }
      minutes = minutes.toString().padStart(2, '0');
      seconds = seconds.toString().padStart(2, '0');
@@ -29,7 +28,6 @@ class Activity {
 
   markComplete() {
     this.completed = true;
-    document.querySelector(".start-timer-button").innerText = "COMPLETE!";
   }
 
   saveToStorage() {
