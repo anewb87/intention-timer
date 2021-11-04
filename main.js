@@ -17,6 +17,9 @@ var secondsInput = document.getElementById("seconds-input");
 var activityError = document.querySelector(".description-error");
 var minutesError = document.querySelector(".minutes-error");
 var secondsError = document.querySelector(".seconds-error");
+var currentActivityView = document.querySelector(".current-activity");
+var newActivityView = document.querySelector(".new-activity")
+var startTimerBtn = document.querySelector(".start-timer-button")
 
 var currentActivity = {};
 
@@ -27,29 +30,43 @@ meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 
+function show(element) {
+  element.classList.remove("hidden")
+};
+
+function hide(element) {
+  element.classList.add("hidden")
+};
+
+function viewCurrentActivity(view, vanish) {
+  show(view);
+  hide(vanish);
+};
+
 function startActivity() {
-  createActivity();
   throwError();
-}
+  createActivity();
+  viewCurrentActivity(currentActivityView, newActivityView);
+};
 
 function createActivity() {
   currentActivity = {};
   currentActivity = new Activity (activityCategory, activityInput.value, minutesInput.value, secondsInput.value);
-  console.log(currentActivity);
-}
+  //console.log(currentActivity);
+};
 
 function assignCategory(category) {
   activityCategory = category;
-}
+};
 
 
 function addErrorStyling(input) {
   input.classList.add("error");
-}
+};
 
 function removeErrorStyling(input) {
   input.classList.remove("error");
-}
+};
 
 function throwError() {
   if (!activityInput.value) {
@@ -76,15 +93,9 @@ function removeError() {
     removeErrorStyling(secondsInput);
     hide(secondsError);
   }
-}
-
-function show(element) {
-  element.classList.remove("hidden")
 };
 
-function hide(element) {
-  element.classList.add("hidden")
-};
+
 
 
 function changeImgColor(whiteImg, activeImg) {
