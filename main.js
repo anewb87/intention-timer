@@ -29,13 +29,18 @@ studyBtn.addEventListener("click", activateStudy);
 meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
+startTimerBtn.addEventListener("click", start);
+
+function start() {
+  currentActivity.countdown(currentActivity.minutes, currentActivity.seconds);
+}
 
 function show(element) {
-  element.classList.remove("hidden")
+  element.classList.remove("hidden");
 };
 
 function hide(element) {
-  element.classList.add("hidden")
+  element.classList.add("hidden");
 };
 
 function viewCurrentActivity(view, vanish) {

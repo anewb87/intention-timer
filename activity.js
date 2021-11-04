@@ -8,15 +8,26 @@ class Activity {
     this.id = Date.now();
   }
 
-  countdown() {
 
+  countdown(minutes, seconds){
+    setInterval( function(){
+    if(seconds > 0){
+      seconds = seconds - 1;
+    } else if (minutes > 0 && seconds == 0) {
+      minutes = minutes - 1;
+      seconds = 59;
+    } else if (minutes == 0 && seconds == 0) {
+       return document.querySelector(".start-timer-button").innerText = "COMPLETE!";
+    }
+     minutes = minutes.toString().padStart(2, '0');
+     seconds = seconds.toString().padStart(2, '0');
+    document.querySelector(".timer").innerText = `${minutes}:${seconds}`}, 1000)
   }
 
   markComplete() {
     this.completed = true;
   }
-  
-  saveToStorage() {
 
+  saveToStorage() {
   }
 }
