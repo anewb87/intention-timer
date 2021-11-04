@@ -37,7 +37,11 @@ function updateDescription() {
   descriptionDisplay.innerText = activityInput.value;
 }
 
-
+function updateTimer() {
+  currentActivity.minutes = currentActivity.minutes.toString().padStart(2, '0');
+  currentActivity.seconds = currentActivity.seconds.toString().padStart(2, '0');
+  timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
+}
 
 function start() {
   currentActivity.countdown(currentActivity.minutes, currentActivity.seconds);
@@ -61,6 +65,7 @@ function startActivity() {
   createActivity();
   viewCurrentActivity(currentActivityView, newActivityView);
   updateDescription();
+  updateTimer();
 };
 
 function createActivity() {
