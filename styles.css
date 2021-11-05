@@ -52,6 +52,10 @@ div {
   justify-content: space-evenly;
 }
 
+p {
+  margin: 0;
+}
+
 .activity-container {
   background-color: #2B2733;
   width: 67%;
@@ -210,10 +214,38 @@ div {
 }
 
 .card {
+  display: flex;
+  flex-direction: row;
   background-color: #46424D;
   border-radius: 5px;
   box-shadow: 5px 5px 2px #26222d;
-  padding: 2%
+  padding: 3%;
+  max-height: 5%;
+}
+
+.card-text {
+  width: 98%;
+}
+
+.card-header {
+  font-weight: 900;
+  font-size: 100%;
+}
+
+.card-time {
+  font-size: 130%;
+}
+
+.card-description{
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.category-color-bar {
+  background-color: #B3FD78;
+  height: 30px;
+  width: 5px;
+  border-radius: 3px;
 }
 
 .hidden {
