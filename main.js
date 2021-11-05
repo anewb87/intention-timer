@@ -46,9 +46,12 @@ function logActivity() {
   for (var i = 0; i < savedActivities.length; i++) {
     cardContainer.innerHTML +=
     `<section class="card">
-    <h3>${savedActivities[i].category}</h3>
-    <p>${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
-    <p>${savedActivities[i].description}</p>
+      <section class="card-text">
+        <p class="card-header">${savedActivities[i].category}</p>
+        <p class="card-time">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
+        <p class="card-description">${savedActivities[i].description}</p>
+      </section>
+      <section class="category-color-bar"></section>
     </section>`
   }
 };
@@ -149,19 +152,26 @@ function changeImgColor(whiteImg, activeImg) {
 
 function removeColor(){
   hide(studyImgActive);
-  show(studyImg)
+  show(studyImg);
   hide(meditateImgActive);
-  show(meditateImg)
+  show(meditateImg);
   hide(exerciseImgActive);
-  show(exerciseImg)
-  removeClass(studyBtn, "study-button-color")
-  removeClass(meditateBtn, "meditate-button-color")
-  removeClass(exerciseBtn, "exercise-button-color")
+  show(exerciseImg);
+  removeClass(studyBtn, "study-button-color");
+  removeClass(meditateBtn, "meditate-button-color");
+  removeClass(exerciseBtn, "exercise-button-color");
+  clearColor();
 }
 
 function addClass(variableName, className){
   variableName.classList.add(className);
   startTimerBtn.classList.add(className);
+}
+
+function clearColor(){
+  startTimerBtn.classList.remove("study-button-color");
+  startTimerBtn.classList.remove("meditate-button-color");
+  startTimerBtn.classList.remove("exercise-button-color");
 }
 
 function removeClass(variableName, className){
@@ -171,7 +181,7 @@ function removeClass(variableName, className){
 function activateStudy() {
   removeColor();
   addClass(studyBtn, "study-button-color");
-  changeImgColor(studyImg, studyImgActive)
+  changeImgColor(studyImg, studyImgActive);
   assignCategory("Study");
 };
 
