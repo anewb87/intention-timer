@@ -8,7 +8,6 @@ class Activity {
     this.id = Date.now();
   }
 
-
   countdown(minutes, seconds){
     setInterval( function(){
     if(seconds > 0){
@@ -19,7 +18,8 @@ class Activity {
     } else if (minutes == 0 && seconds == 0) {
       minutes = minutes.toString().padStart(2, '0');
       seconds = seconds.toString().padStart(2, '0');
-      return document.querySelector(".start-timer-button").innerText = "COMPLETE!";
+      document.querySelector(".start-timer-button").innerText = "COMPLETE!";
+      return document.querySelector(".timer").innerText = "YES!"
     }
      minutes = minutes.toString().padStart(2, '0');
      seconds = seconds.toString().padStart(2, '0');
