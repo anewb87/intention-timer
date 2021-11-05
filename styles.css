@@ -159,7 +159,7 @@ div {
   font-weight: bold;
   font-size: 100px;
   margin: 0px;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 }
 
 .timer-words-container {
@@ -170,6 +170,7 @@ div {
   background-color: #46424D;
   border-radius: 50%;
   border: 2px solid;
+  margin-bottom: 50px;
   padding: 16% 12%;
   font-family: Montserrat;
   font-weight: 300;

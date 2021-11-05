@@ -1,6 +1,3 @@
-var savedActivites = [];
-
-
 var studyBtn = document.querySelector(".study-button");
 var meditateBtn = document.querySelector(".meditate-button");
 var exerciseBtn = document.querySelector(".exercise-button");
@@ -22,9 +19,12 @@ var newActivityView = document.querySelector(".new-activity");
 var startTimerBtn = document.querySelector(".start-timer-button");
 var descriptionDisplay = document.querySelector(".current-description");
 var timerDisplay = document.querySelector(".timer");
+var logActivityBtn = document.querySelector(".log-activity-button");
+//var pastActivitiesView = document.querySelector(".past-activities-container");
+var cardContainer = document.querySelector(".cards-container");
 
+var savedActivities = [];
 var currentActivity = {};
-
 var activityCategory = '';
 
 studyBtn.addEventListener("click", activateStudy);
@@ -32,20 +32,39 @@ meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 startTimerBtn.addEventListener("click", start);
+logActivityBtn.addEventListener("click", logActivity);
+
+
+function saveCard() {
+  savedActivities.push(currentActivity)
+};
+
+function logActivity() {
+  saveCard();
+  cardContainer.innerHTML = '';
+  for (var i = 0; i < savedActivities.length; i++) {
+    cardContainer.innerHTML +=
+    `<section class="card">
+    <h3>${savedActivities[i].category}</h3>
+    <p>${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
+    <p>${savedActivities[i].description}</p>
+    </section>`
+  }
+};
 
 function updateDescription() {
   descriptionDisplay.innerText = activityInput.value;
-}
+};
 
 function updateTimer() {
   currentActivity.minutes = currentActivity.minutes.toString().padStart(2, '0');
   currentActivity.seconds = currentActivity.seconds.toString().padStart(2, '0');
   timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
-}
+};
 
 function start() {
   currentActivity.countdown(currentActivity.minutes, currentActivity.seconds);
-}
+};
 
 function show(element) {
   element.classList.remove("hidden");
@@ -73,7 +92,6 @@ function startActivity() {
 function createActivity() {
   currentActivity = {};
   currentActivity = new Activity (activityCategory, activityInput.value, minutesInput.value, secondsInput.value);
-  //console.log(currentActivity);
 };
 
 function assignCategory(category) {

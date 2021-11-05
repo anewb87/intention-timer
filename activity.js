@@ -18,12 +18,13 @@ class Activity {
     } else if (minutes == 0 && seconds == 0) {
       minutes = minutes.toString().padStart(2, '0');
       seconds = seconds.toString().padStart(2, '0');
-      document.querySelector(".start-timer-button").innerText = "COMPLETE!";
-      return document.querySelector(".timer").innerText = "YES!"
+      startTimerBtn.innerText = "COMPLETE!";
+      show(logActivityBtn);
+      return timerDisplay.innerText = "YES!"
     }
      minutes = minutes.toString().padStart(2, '0');
      seconds = seconds.toString().padStart(2, '0');
-    document.querySelector(".timer").innerText = `${minutes}:${seconds}`}, 1000)
+     timerDisplay.innerText = `${minutes}:${seconds}`}, 1000)
   }
 
   markComplete() {
