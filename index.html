@@ -17,6 +17,7 @@
               <h3 class="current-description"></h3>
               <h1 class="timer"></h1>
               <button class="start-timer-button text-color">START</button>
+              <button class="white-button log-activity-button hidden">LOG ACTIVITY</button>
             </section>
           </div>
       </section>
@@ -24,6 +25,7 @@
         <h2>New Activity</h2>
         <div >
           <p class="select-category">Select a category:</p>
+          <p class="category-error error hidden"><img class="warning-img" src="./assets/warning.svg" alt="error image"/>A category is required.</p>
           <section class="category-container">
             <button class="category-button study-button"><img class="button-image study-img" src="./assets/study.svg" alt="Lightbulb Image"><img class="button-image study-img-active hidden" src="./assets/study-active.svg" alt="Active Lightbulb Image"><br>Study</button>
             <button class="category-button meditate-button"><img class="button-image meditate-img" src="./assets/meditate.svg" alt="Lotus Image"><img class="button-image meditate-img-active hidden"  src="./assets/meditate-active.svg" alt="Lotus Image"><br>Meditate</button>
@@ -51,8 +53,14 @@
       </section>
       <section class="past-activities-container">
         <h2>Past Activities</h2>
-        <p class="no-logged-activities">You haven't logged any activities yet.<br>
-          Complete the form to the left to get started!</p>
+        <section class="cards-container">
+          <section class="card">
+            <h3>Category</h3>
+            <p>05:00</p>
+            <p>Sleep n Stuff</p>
+          </section>
+          <!-- <p class="no-logged-activities">You haven't logged any activities yet.<br>Complete the form to the left to get started!</p> -->
+        </section>
       </section>
     </main>
   </body>

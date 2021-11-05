@@ -159,7 +159,7 @@ div {
   font-weight: bold;
   font-size: 100px;
   margin: 0px;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 }
 
 .timer-words-container {
@@ -170,6 +170,7 @@ div {
   background-color: #46424D;
   border-radius: 50%;
   border: 2px solid;
+  margin-bottom: 50px;
   padding: 16% 12%;
   font-family: Montserrat;
   font-weight: 300;
@@ -206,6 +207,13 @@ div {
   max-width: 15px;
   max-height: auto;
   margin-right: 5px;
+}
+
+.card {
+  background-color: #46424D;
+  border-radius: 5px;
+  box-shadow: 5px 5px 2px #26222d;
+  padding: 2%
 }
 
 .hidden {
