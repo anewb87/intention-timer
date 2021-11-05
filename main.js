@@ -11,6 +11,7 @@ var exerciseImgActive = document.querySelector(".exercise-img-active");
 var activityInput = document.querySelector(".accomplish-input");
 var minutesInput = document.getElementById("minutes-input");
 var secondsInput = document.getElementById("seconds-input");
+var categoryError = document.querySelector(".category-error");
 var activityError = document.querySelector(".description-error");
 var minutesError = document.querySelector(".minutes-error");
 var secondsError = document.querySelector(".seconds-error");
@@ -25,7 +26,7 @@ var cardContainer = document.querySelector(".cards-container");
 
 var savedActivities = [];
 var currentActivity = {};
-var activityCategory = '';
+var activityCategory = undefined;
 
 studyBtn.addEventListener("click", activateStudy);
 meditateBtn.addEventListener("click", activateMeditate);
@@ -81,13 +82,13 @@ function viewCurrentActivity(view, vanish) {
 
 function startActivity() {
   throwError();
-  createActivity();
-  viewCurrentActivity(currentActivityView, newActivityView);
-  updateDescription();
-  updateTimer();
+  if (activityCategory && activityInput.value && minutesInput.value && secondsInput.value ) {
+    createActivity();
+    viewCurrentActivity(currentActivityView, newActivityView);
+    updateDescription();
+    updateTimer();
+  }
 };
-
-
 
 function createActivity() {
   currentActivity = {};
@@ -117,6 +118,8 @@ function throwError() {
   } if (!secondsInput.value) {
     addErrorStyling(secondsInput);
     show(secondsError);
+  }if (!activityCategory) {
+    show(categoryError)
   }
   removeError();
 };
@@ -131,6 +134,8 @@ function removeError() {
   } if (secondsInput.value) {
     removeErrorStyling(secondsInput);
     hide(secondsError);
+  } if (activityCategory) {
+    hide(categoryError);
   }
 };
 

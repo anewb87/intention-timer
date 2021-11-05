@@ -209,6 +209,13 @@ div {
   margin-right: 5px;
 }
 
+.card {
+  background-color: #46424D;
+  border-radius: 5px;
+  box-shadow: 5px 5px 2px #26222d;
+  padding: 2%
+}
+
 .hidden {
   display: none;
 }
