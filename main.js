@@ -22,23 +22,22 @@ var descriptionDisplay = document.querySelector(".current-description");
 var timerDisplay = document.querySelector(".timer");
 var logActivityBtn = document.querySelector(".log-activity-button");
 var createActivtyBtn = document.querySelector(".create-new-button");
-//var pastActivitiesView = document.querySelector(".past-activities-container");
 var cardContainer = document.querySelector(".cards-container");
 var completedActivityView = document.querySelector(".completed-activity-view");
 
-
-// var savedActivities = [];
 var categoryColorBar = '';
 var currentActivity = {};
 var activityCategory = undefined;
 
-//window.addEventListener("load", logActivity);
+document.addEventListener("load", displayActivity());
+//document.onload = displayActivity();
+
 studyBtn.addEventListener("click", activateStudy);
 meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 startTimerBtn.addEventListener("click", start);
-logActivityBtn.addEventListener("click", logActivity);
+logActivityBtn.addEventListener("click", saveCard);
 createActivtyBtn.addEventListener("click", goHome);
 
 function goHome() {
@@ -53,14 +52,13 @@ function clearInputValues() {
   removeColor();
 };
 
+function saveCard() {
+  currentActivity.saveToStorage();
+  displayActivity();
+  updateView(completedActivityView, currentActivityView);
+};
 
-// function saveCard() {
-//   currentActivity.saveToStorage()
-// };
-
-
-function logActivity() {
-  currentActivity.saveToStorage()
+function displayActivity() {
   var savedActivities = parseData();
   if (savedActivities) {
     cardContainer.innerHTML = '';
@@ -74,8 +72,7 @@ function logActivity() {
         </section>
         <section class="category-color-bar ${savedActivities[i].color}"></section>
       </section>`
-    }
-    updateView(completedActivityView, currentActivityView);
+    };
   };
 };
 
@@ -137,8 +134,6 @@ function assignCategoryColor(category) {
   categoryColorBar = category;
 };
 
-
-
 function addErrorStyling(input) {
   input.classList.add("error");
 };
@@ -194,22 +189,22 @@ function removeColor(){
   removeClass(meditateBtn, "meditate-button-color");
   removeClass(exerciseBtn, "exercise-button-color");
   clearColor();
-}
+};
 
 function addClass(variableName, className){
   variableName.classList.add(className);
   startTimerBtn.classList.add(className);
-}
+};
 
 function clearColor(){
   startTimerBtn.classList.remove("study-button-color");
   startTimerBtn.classList.remove("meditate-button-color");
   startTimerBtn.classList.remove("exercise-button-color");
-}
+};
 
 function removeClass(variableName, className){
     variableName.classList.remove(className);
-}
+};
 
 function activateStudy() {
   removeColor();

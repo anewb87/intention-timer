@@ -21,7 +21,7 @@ class Activity {
       seconds = seconds.toString().padStart(2, '0');
       startTimerBtn.innerText = "COMPLETE!";
       show(logActivityBtn);
-      return timerDisplay.innerText = "YES!"
+      return timerDisplay.innerText = "YOU ROCK!"
     }
      minutes = minutes.toString().padStart(2, '0');
      seconds = seconds.toString().padStart(2, '0');
