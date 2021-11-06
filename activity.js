@@ -1,6 +1,7 @@
 class Activity {
-  constructor(category, description, minutes, seconds) {
+  constructor(category, color, description, minutes, seconds) {
     this.category = category;
+    this.color = color;
     this.description = description;
     this.minutes = minutes;
     this.seconds = seconds;
@@ -32,5 +33,6 @@ class Activity {
   }
 
   saveToStorage() {
+
   }
 }

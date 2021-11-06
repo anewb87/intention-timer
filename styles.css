@@ -242,7 +242,6 @@ p {
 }
 
 .category-color-bar {
-  background-color: #B3FD78;
   height: 30px;
   width: 5px;
   border-radius: 3px;
@@ -256,6 +255,18 @@ p {
   margin-top: 20%;
   margin-left: 17%;
   max-width: 400px;
+}
+
+.study {
+   background-color: #B3FD78;
+ }
+
+.meditate {
+  background-color: #C278FD;
+}
+
+.exercise {
+  background-color: #FD8078;
 }
 
 .hidden {
