@@ -23,6 +23,7 @@ var timerDisplay = document.querySelector(".timer");
 var logActivityBtn = document.querySelector(".log-activity-button");
 //var pastActivitiesView = document.querySelector(".past-activities-container");
 var cardContainer = document.querySelector(".cards-container");
+var completedActivityView = document.querySelector(".completed-activity-view");
 
 var savedActivities = [];
 var currentActivity = {};
@@ -54,6 +55,7 @@ function logActivity() {
       <section class="category-color-bar"></section>
     </section>`
   }
+  updateView(completedActivityView, currentActivityView);
 };
 
 function updateDescription() {
@@ -78,7 +80,7 @@ function hide(element) {
   element.classList.add("hidden");
 };
 
-function viewCurrentActivity(view, vanish) {
+function updateView(view, vanish) {
   show(view);
   hide(vanish);
 };
@@ -87,7 +89,7 @@ function startActivity() {
   throwError();
   if (activityCategory && activityInput.value && minutesInput.value && secondsInput.value ) {
     createActivity();
-    viewCurrentActivity(currentActivityView, newActivityView);
+    updateView(currentActivityView, newActivityView);
     updateDescription();
     updateTimer();
   }

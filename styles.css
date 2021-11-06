@@ -248,6 +248,16 @@ p {
   border-radius: 3px;
 }
 
+.completed-activity-reset {
+  justify-content: flex-start;
+}
+
+.create-new-button {
+  margin-top: 20%;
+  margin-left: 17%;
+  max-width: 400px;
+}
+
 .hidden {
   display: none;
 }
