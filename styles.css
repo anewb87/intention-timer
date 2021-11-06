@@ -70,21 +70,12 @@ p {
   padding-right: 2%;
 }
 
-.accomplish-input{
+.input{
   width: 100%;
   background-color: #46424D;
   border: none;
   border-bottom: 1px solid #CBC9CF;
-  font-size: 40px;
-  color: #CBC9CF;
-}
-
-.number-input {
-  width: 100%;
-  background-color: #46424D;
-  border: none;
-  border-bottom: 1px solid #CBC9CF;
-  font-size: 30px;
+  font-size: 18px;
   line-height: 40px;
   color: #CBC9CF;
 }
@@ -150,6 +141,9 @@ p {
 .start-activity-button {
   font-family: Montserrat;
   font-weight: 400;
+  font-size: 16px;
+  max-width: 200px;
+  align-self: flex-end;
 }
 
 .timer-container {
@@ -242,7 +236,6 @@ p {
 }
 
 .category-color-bar {
-  background-color: #B3FD78;
   height: 30px;
   width: 5px;
   border-radius: 3px;
@@ -256,6 +249,18 @@ p {
   margin-top: 20%;
   margin-left: 17%;
   max-width: 400px;
+}
+
+.study {
+   background-color: #B3FD78;
+ }
+
+.meditate {
+  background-color: #C278FD;
+}
+
+.exercise {
+  background-color: #FD8078;
 }
 
 .hidden {

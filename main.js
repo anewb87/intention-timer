@@ -21,10 +21,13 @@ var startTimerBtn = document.querySelector(".start-timer-button");
 var descriptionDisplay = document.querySelector(".current-description");
 var timerDisplay = document.querySelector(".timer");
 var logActivityBtn = document.querySelector(".log-activity-button");
+var createActivtyBtn = document.querySelector(".create-new-button");
 //var pastActivitiesView = document.querySelector(".past-activities-container");
 var cardContainer = document.querySelector(".cards-container");
 var completedActivityView = document.querySelector(".completed-activity-view");
 
+
+var categoryColorBar = '';
 var savedActivities = [];
 var currentActivity = {};
 var activityCategory = undefined;
@@ -35,11 +38,17 @@ exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 startTimerBtn.addEventListener("click", start);
 logActivityBtn.addEventListener("click", logActivity);
+createActivtyBtn.addEventListener("click", goHome);
+
+function goHome() {
+  updateView(newActivityView, completedActivityView);
+}
 
 
 function saveCard() {
-  savedActivities.push(currentActivity)
+  savedActivities.push(currentActivity);
 };
+
 
 function logActivity() {
   saveCard();
@@ -52,7 +61,7 @@ function logActivity() {
         <p class="card-time">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
         <p class="card-description">${savedActivities[i].description}</p>
       </section>
-      <section class="category-color-bar"></section>
+      <section class="category-color-bar ${savedActivities[i].color}"></section>
     </section>`
   }
   updateView(completedActivityView, currentActivityView);
@@ -97,12 +106,17 @@ function startActivity() {
 
 function createActivity() {
   currentActivity = {};
-  currentActivity = new Activity(activityCategory, activityInput.value, minutesInput.value, secondsInput.value);
+  currentActivity = new Activity(activityCategory, categoryColorBar, activityInput.value, minutesInput.value, secondsInput.value);
 };
 
 function assignCategory(category) {
   activityCategory = category;
 };
+
+function assignCategoryColor(category) {
+  categoryColorBar = category;
+}
+
 
 
 function addErrorStyling(input) {
@@ -144,9 +158,6 @@ function removeError() {
   }
 };
 
-
-
-
 function changeImgColor(whiteImg, activeImg) {
   show(activeImg);
   hide(whiteImg);
@@ -182,6 +193,7 @@ function removeClass(variableName, className){
 
 function activateStudy() {
   removeColor();
+  assignCategoryColor("study");
   addClass(studyBtn, "study-button-color");
   changeImgColor(studyImg, studyImgActive);
   assignCategory("Study");
@@ -190,14 +202,17 @@ function activateStudy() {
 
 function activateMeditate() {
   removeColor();
+  assignCategoryColor("meditate");
   addClass(meditateBtn, "meditate-button-color");
   changeImgColor(meditateImg, meditateImgActive);
   assignCategory("Meditate");
+
 };
 
 
 function activateExercise() {
   removeColor();
+  assignCategoryColor("exercise");
   addClass(exerciseBtn, "exercise-button-color");
   changeImgColor(exerciseImg, exerciseImgActive);
   assignCategory("Exercise");
