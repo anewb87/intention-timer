@@ -22,49 +22,66 @@ var descriptionDisplay = document.querySelector(".current-description");
 var timerDisplay = document.querySelector(".timer");
 var logActivityBtn = document.querySelector(".log-activity-button");
 var createActivtyBtn = document.querySelector(".create-new-button");
-//var pastActivitiesView = document.querySelector(".past-activities-container");
 var cardContainer = document.querySelector(".cards-container");
 var completedActivityView = document.querySelector(".completed-activity-view");
 
-
 var categoryColorBar = '';
-var savedActivities = [];
 var currentActivity = {};
 var activityCategory = undefined;
+
+document.addEventListener("load", displayActivity());
+//document.onload = displayActivity();
 
 studyBtn.addEventListener("click", activateStudy);
 meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
 startActivityBtn.addEventListener("click", startActivity);
 startTimerBtn.addEventListener("click", start);
-logActivityBtn.addEventListener("click", logActivity);
+logActivityBtn.addEventListener("click", saveCard);
 createActivtyBtn.addEventListener("click", goHome);
 
 function goHome() {
   updateView(newActivityView, completedActivityView);
-}
-
-
-function saveCard() {
-  savedActivities.push(currentActivity);
+  clearInputValues()
 };
 
+function clearInputValues() {
+  activityInput.value = '';
+  minutesInput.value = '';
+  secondsInput.value = '';
+  removeColor();
+};
 
-function logActivity() {
-  saveCard();
-  cardContainer.innerHTML = '';
-  for (var i = 0; i < savedActivities.length; i++) {
-    cardContainer.innerHTML +=
-    `<section class="card">
-      <section class="card-text">
-        <p class="card-header">${savedActivities[i].category}</p>
-        <p class="card-time">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
-        <p class="card-description">${savedActivities[i].description}</p>
-      </section>
-      <section class="category-color-bar ${savedActivities[i].color}"></section>
-    </section>`
-  }
+function saveCard() {
+  currentActivity.saveToStorage();
+  displayActivity();
   updateView(completedActivityView, currentActivityView);
+};
+
+function displayActivity() {
+  var savedActivities = parseData();
+  if (savedActivities) {
+    cardContainer.innerHTML = '';
+    for (var i = 0; i < savedActivities.length; i++) {
+      cardContainer.innerHTML +=
+      `<section class="card">
+        <section class="card-text">
+          <p class="card-header">${savedActivities[i].category}</p>
+          <p class="card-time">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
+          <p class="card-description">${savedActivities[i].description}</p>
+        </section>
+        <section class="category-color-bar ${savedActivities[i].color}"></section>
+      </section>`
+    };
+  };
+};
+
+function stringifyData(savedActivities) {
+  localStorage.setItem('savedActivities', JSON.stringify(savedActivities))
+};
+
+function parseData() {
+  return JSON.parse(localStorage.getItem('savedActivities'))
 };
 
 function updateDescription() {
@@ -115,9 +132,7 @@ function assignCategory(category) {
 
 function assignCategoryColor(category) {
   categoryColorBar = category;
-}
-
-
+};
 
 function addErrorStyling(input) {
   input.classList.add("error");
@@ -174,22 +189,22 @@ function removeColor(){
   removeClass(meditateBtn, "meditate-button-color");
   removeClass(exerciseBtn, "exercise-button-color");
   clearColor();
-}
+};
 
 function addClass(variableName, className){
   variableName.classList.add(className);
   startTimerBtn.classList.add(className);
-}
+};
 
 function clearColor(){
   startTimerBtn.classList.remove("study-button-color");
   startTimerBtn.classList.remove("meditate-button-color");
   startTimerBtn.classList.remove("exercise-button-color");
-}
+};
 
 function removeClass(variableName, className){
     variableName.classList.remove(className);
-}
+};
 
 function activateStudy() {
   removeColor();

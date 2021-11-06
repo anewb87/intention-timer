@@ -43,7 +43,7 @@ h3 {
 div {
   background-color: #46424D;
   color: #FFF;
-  height: 57%;
+  height: 50%;
   padding: 2% 15% 2% 15%;
   box-shadow: 5px 5px 2px #26222D;
   border-radius: 5px;
@@ -68,6 +68,7 @@ p {
   border-left: 3px solid #46424D;
   padding-left: 2%;
   padding-right: 2%;
+  overflow-y: scroll;
 }
 
 .input{
@@ -155,7 +156,7 @@ p {
 .timer {
   font-family: sans-serif;
   font-weight: bold;
-  font-size: 100px;
+  font-size: 80px;
   margin: 0px;
   padding-bottom: 30px;
 }
@@ -173,6 +174,11 @@ p {
   font-family: Montserrat;
   font-weight: 300;
   font-size: 25px;
+  max-width: 40%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
 }
 
 .study-button-color {
@@ -215,6 +221,7 @@ p {
   box-shadow: 5px 5px 2px #26222d;
   padding: 3%;
   max-height: 5%;
+  margin-bottom: 10px;
 }
 
 .card-text {
