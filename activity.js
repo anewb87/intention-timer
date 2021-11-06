@@ -33,6 +33,8 @@ class Activity {
   }
 
   saveToStorage() {
-
+    var savedActivities = parseData() || [];
+    savedActivities.push(this);
+    stringifyData(savedActivities);
   }
 }

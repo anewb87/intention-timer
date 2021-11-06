@@ -215,6 +215,7 @@ p {
   box-shadow: 5px 5px 2px #26222d;
   padding: 3%;
   max-height: 5%;
+  margin-bottom: 10px;
 }
 
 .card-text {

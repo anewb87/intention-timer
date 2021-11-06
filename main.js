@@ -27,11 +27,12 @@ var cardContainer = document.querySelector(".cards-container");
 var completedActivityView = document.querySelector(".completed-activity-view");
 
 
+// var savedActivities = [];
 var categoryColorBar = '';
-var savedActivities = [];
 var currentActivity = {};
 var activityCategory = undefined;
 
+//window.addEventListener("load", logActivity);
 studyBtn.addEventListener("click", activateStudy);
 meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
@@ -42,29 +43,48 @@ createActivtyBtn.addEventListener("click", goHome);
 
 function goHome() {
   updateView(newActivityView, completedActivityView);
-}
+  clearInputValues()
+};
 
-
-function saveCard() {
-  savedActivities.push(currentActivity);
+function clearInputValues() {
+  activityInput.value = '';
+  minutesInput.value = '';
+  secondsInput.value = '';
+  removeColor();
 };
 
 
+// function saveCard() {
+//   currentActivity.saveToStorage()
+// };
+
+
 function logActivity() {
-  saveCard();
-  cardContainer.innerHTML = '';
-  for (var i = 0; i < savedActivities.length; i++) {
-    cardContainer.innerHTML +=
-    `<section class="card">
-      <section class="card-text">
-        <p class="card-header">${savedActivities[i].category}</p>
-        <p class="card-time">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
-        <p class="card-description">${savedActivities[i].description}</p>
-      </section>
-      <section class="category-color-bar ${savedActivities[i].color}"></section>
-    </section>`
-  }
-  updateView(completedActivityView, currentActivityView);
+  currentActivity.saveToStorage()
+  var savedActivities = parseData();
+  if (savedActivities) {
+    cardContainer.innerHTML = '';
+    for (var i = 0; i < savedActivities.length; i++) {
+      cardContainer.innerHTML +=
+      `<section class="card">
+        <section class="card-text">
+          <p class="card-header">${savedActivities[i].category}</p>
+          <p class="card-time">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
+          <p class="card-description">${savedActivities[i].description}</p>
+        </section>
+        <section class="category-color-bar ${savedActivities[i].color}"></section>
+      </section>`
+    }
+    updateView(completedActivityView, currentActivityView);
+  };
+};
+
+function stringifyData(savedActivities) {
+  localStorage.setItem('savedActivities', JSON.stringify(savedActivities))
+};
+
+function parseData() {
+  return JSON.parse(localStorage.getItem('savedActivities'))
 };
 
 function updateDescription() {
@@ -115,7 +135,7 @@ function assignCategory(category) {
 
 function assignCategoryColor(category) {
   categoryColorBar = category;
-}
+};
 
 
 
