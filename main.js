@@ -57,6 +57,7 @@ function clearInputValues() {
   activityInput.value = '';
   minutesInput.value = '';
   secondsInput.value = '';
+  activityCategory = undefined;
   removeColor();
 };
 
