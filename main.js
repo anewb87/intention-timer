@@ -40,6 +40,14 @@ startTimerBtn.addEventListener("click", start);
 logActivityBtn.addEventListener("click", saveCard);
 createActivtyBtn.addEventListener("click", goHome);
 
+function disableStart() {
+  startTimerBtn.disabled = true;
+}
+
+function resetStart() {
+  startTimerBtn.disabled = false;
+}
+
 function goHome() {
   updateView(newActivityView, completedActivityView);
   clearInputValues()
@@ -56,6 +64,7 @@ function saveCard() {
   currentActivity.saveToStorage();
   displayActivity();
   updateView(completedActivityView, currentActivityView);
+  resetStart();
 };
 
 function displayActivity() {
@@ -96,6 +105,7 @@ function updateTimer() {
 
 function start() {
   currentActivity.countdown(currentActivity.minutes, currentActivity.seconds);
+  disableStart();
 };
 
 function show(element) {
