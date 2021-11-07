@@ -17,7 +17,8 @@ class Activity {
       minutes = minutes - 1;
       seconds = 59;
     } else if (minutes == 0 && seconds == 0) {
-      padNum(minutes, seconds);
+      minutes = minutes.toString().padStart(2, '0');
+      seconds = seconds.toString().padStart(2, '0');
       startTimerBtn.innerText = "COMPLETE!";
       show(logActivityBtn);
       return timerDisplay.innerText = "YOU ROCK!";
