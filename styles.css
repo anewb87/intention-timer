@@ -1,5 +1,5 @@
 html {
-  font-family: Montserrat
+  font-family: Montserrat;
 }
 
 body {
@@ -27,13 +27,11 @@ main {
   height: 1000px;
 }
 
-h1 {
-  font-weight: 300;
-}
-
+h1,
 h2 {
   font-weight: 300;
 }
+
 
 h3 {
   font-weight: 300;
@@ -43,7 +41,7 @@ h3 {
 div {
   background-color: #46424D;
   color: #FFF;
-  height: 50%;
+  height: 53%;
   padding: 2% 15% 2% 15%;
   box-shadow: 5px 5px 2px #26222D;
   border-radius: 5px;
@@ -59,7 +57,7 @@ p {
 .activity-container {
   background-color: #2B2733;
   width: 67%;
-  padding: 0% 2% 2% 2%
+  padding: 0% 2% 2% 2%;
 }
 
 .past-activities-container {
@@ -74,7 +72,7 @@ p {
 .input{
   width: 100%;
   background-color: #46424D;
-  border: none;
+  border: 0;
   border-bottom: 1px solid #CBC9CF;
   font-size: 18px;
   line-height: 40px;
@@ -94,13 +92,13 @@ p {
 .seconds-input {
   width: 100%;
   background-color: #46424D;
-  border: none;
+  border: 0;
   border-bottom: 1px solid #CBC9CF;
 }
 
 .no-logged-activities {
   text-align: center;
-  padding-top: 3%
+  padding-top: 3%;
 }
 
 .button-image {
@@ -118,13 +116,8 @@ p {
   font-size: 120%;
 }
 
-.category-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.input-container {
+.category-container,
+.input-container  {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -132,7 +125,7 @@ p {
 
 .white-button {
   background-color: #CBC9CF;
-  border: none;
+  border: 0;
   border-radius: 3px;
   padding: 1.5% 5% 1.5% 5%;
   color: #46424D;
@@ -173,7 +166,7 @@ p {
   padding: 16% 12%;
   font-family: Montserrat;
   font-weight: 300;
-  font-size: 25px;
+  font-size: 24px;
   max-width: 40%;
   display: inline-flex;
   flex-wrap: wrap;
@@ -183,7 +176,7 @@ p {
 
 .study-button-color {
   border-color: #B3FD78;
-  color: #B3FD78
+  color: #B3FD78;
 }
 
 .meditate-button-color {

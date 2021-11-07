@@ -24,14 +24,11 @@ var logActivityBtn = document.querySelector(".log-activity-button");
 var createActivtyBtn = document.querySelector(".create-new-button");
 var cardContainer = document.querySelector(".cards-container");
 var completedActivityView = document.querySelector(".completed-activity-view");
-
 var categoryColorBar = '';
 var currentActivity = {};
 var activityCategory = undefined;
 
 document.addEventListener("load", displayActivity());
-//document.onload = displayActivity();
-
 studyBtn.addEventListener("click", activateStudy);
 meditateBtn.addEventListener("click", activateMeditate);
 exerciseBtn.addEventListener("click", activateExercise);
@@ -40,9 +37,17 @@ startTimerBtn.addEventListener("click", start);
 logActivityBtn.addEventListener("click", saveCard);
 createActivtyBtn.addEventListener("click", goHome);
 
+function disableStart() {
+  startTimerBtn.disabled = true;
+};
+
+function resetStart() {
+  startTimerBtn.disabled = false;
+};
+
 function goHome() {
   updateView(newActivityView, completedActivityView);
-  clearInputValues()
+  clearInputValues();
 };
 
 function clearInputValues() {
@@ -56,6 +61,7 @@ function saveCard() {
   currentActivity.saveToStorage();
   displayActivity();
   updateView(completedActivityView, currentActivityView);
+  resetStart();
 };
 
 function displayActivity() {
@@ -77,11 +83,11 @@ function displayActivity() {
 };
 
 function stringifyData(savedActivities) {
-  localStorage.setItem('savedActivities', JSON.stringify(savedActivities))
+  localStorage.setItem('savedActivities', JSON.stringify(savedActivities));
 };
 
 function parseData() {
-  return JSON.parse(localStorage.getItem('savedActivities'))
+  return JSON.parse(localStorage.getItem('savedActivities'));
 };
 
 function updateDescription() {
@@ -94,8 +100,14 @@ function updateTimer() {
   timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
 };
 
+function padNum(minutes, seconds) {
+  minutes = minutes.toString().padStart(2, '0');
+  seconds = seconds.toString().padStart(2, '0');
+};
+
 function start() {
   currentActivity.countdown(currentActivity.minutes, currentActivity.seconds);
+  disableStart();
 };
 
 function show(element) {
@@ -118,7 +130,7 @@ function startActivity() {
     updateView(currentActivityView, newActivityView);
     updateDescription();
     updateTimer();
-  }
+  };
 };
 
 function createActivity() {
@@ -152,9 +164,9 @@ function throwError() {
   } if (!secondsInput.value) {
     addErrorStyling(secondsInput);
     show(secondsError);
-  }if (!activityCategory) {
-    show(categoryError)
-  }
+  } if (!activityCategory) {
+    show(categoryError);
+  };
   removeError();
 };
 
@@ -170,7 +182,7 @@ function removeError() {
     hide(secondsError);
   } if (activityCategory) {
     hide(categoryError);
-  }
+  };
 };
 
 function changeImgColor(whiteImg, activeImg) {
@@ -178,7 +190,7 @@ function changeImgColor(whiteImg, activeImg) {
   hide(whiteImg);
 };
 
-function removeColor(){
+function removeColor() {
   hide(studyImgActive);
   show(studyImg);
   hide(meditateImgActive);
@@ -191,18 +203,18 @@ function removeColor(){
   clearColor();
 };
 
-function addClass(variableName, className){
+function addClass(variableName, className) {
   variableName.classList.add(className);
   startTimerBtn.classList.add(className);
 };
 
-function clearColor(){
+function clearColor() {
   startTimerBtn.classList.remove("study-button-color");
   startTimerBtn.classList.remove("meditate-button-color");
   startTimerBtn.classList.remove("exercise-button-color");
 };
 
-function removeClass(variableName, className){
+function removeClass(variableName, className) {
     variableName.classList.remove(className);
 };
 
