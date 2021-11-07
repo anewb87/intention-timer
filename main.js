@@ -100,11 +100,6 @@ function updateTimer() {
   timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
 };
 
-function padNum(minutes, seconds) {
-  minutes = minutes.toString().padStart(2, '0');
-  seconds = seconds.toString().padStart(2, '0');
-};
-
 function start() {
   currentActivity.countdown(currentActivity.minutes, currentActivity.seconds);
   disableStart();

@@ -60,16 +60,7 @@ p {
   padding: 0% 2% 2% 2%;
 }
 
-.past-activities-container {
-  background-color: #2B2733;
-  width: 33%;
-  border-left: 3px solid #46424D;
-  padding-left: 2%;
-  padding-right: 2%;
-  overflow-y: scroll;
-}
-
-.input{
+.input {
   width: 100%;
   background-color: #46424D;
   border: 0;
@@ -191,7 +182,6 @@ p {
 
 .text-color {
   color: #CBC9CF;
-
 }
 
 .error {
@@ -261,6 +251,15 @@ p {
 
 .exercise {
   background-color: #FD8078;
+}
+
+.past-activities-container {
+  background-color: #2B2733;
+  width: 33%;
+  border-left: 3px solid #46424D;
+  padding-left: 2%;
+  padding-right: 2%;
+  overflow-y: scroll;
 }
 
 .hidden {
