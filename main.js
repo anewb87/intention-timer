@@ -46,8 +46,11 @@ function resetStart() {
 };
 
 function goHome() {
+  startTimerBtn.innerText = "START";
   updateView(newActivityView, completedActivityView);
   clearInputValues();
+  resetStart();
+  hide(logActivityBtn);
 };
 
 function clearInputValues() {
@@ -61,7 +64,7 @@ function saveCard() {
   currentActivity.saveToStorage();
   displayActivity();
   updateView(completedActivityView, currentActivityView);
-  resetStart();
+  currentActivity = {};
 };
 
 function displayActivity() {
@@ -78,8 +81,8 @@ function displayActivity() {
         </section>
         <section class="category-color-bar ${savedActivities[i].color}"></section>
       </section>`
-    };
-  };
+    }
+  }
 };
 
 function stringifyData(savedActivities) {
@@ -119,13 +122,14 @@ function updateView(view, vanish) {
 };
 
 function startActivity() {
+  startTimerBtn.disabled = false;
   throwError();
   if (activityCategory && activityInput.value && minutesInput.value && secondsInput.value ) {
     createActivity();
     updateView(currentActivityView, newActivityView);
     updateDescription();
     updateTimer();
-  };
+  }
 };
 
 function createActivity() {
@@ -161,7 +165,7 @@ function throwError() {
     show(secondsError);
   } if (!activityCategory) {
     show(categoryError);
-  };
+  }
   removeError();
 };
 
@@ -177,7 +181,7 @@ function removeError() {
     hide(secondsError);
   } if (activityCategory) {
     hide(categoryError);
-  };
+  }
 };
 
 function changeImgColor(whiteImg, activeImg) {
@@ -228,7 +232,6 @@ function activateMeditate() {
   addClass(meditateBtn, "meditate-button-color");
   changeImgColor(meditateImg, meditateImgActive);
   assignCategory("Meditate");
-
 };
 
 
