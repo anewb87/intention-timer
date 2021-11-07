@@ -46,8 +46,11 @@ function resetStart() {
 };
 
 function goHome() {
+  startTimerBtn.innerText = "START";
   updateView(newActivityView, completedActivityView);
   clearInputValues();
+  resetStart();
+  hide(logActivityBtn);
 };
 
 function clearInputValues() {
@@ -61,7 +64,7 @@ function saveCard() {
   currentActivity.saveToStorage();
   displayActivity();
   updateView(completedActivityView, currentActivityView);
-  resetStart();
+  currentActivity = {};
 };
 
 function displayActivity() {
@@ -119,6 +122,7 @@ function updateView(view, vanish) {
 };
 
 function startActivity() {
+  startTimerBtn.disabled = false;
   throwError();
   if (activityCategory && activityInput.value && minutesInput.value && secondsInput.value ) {
     createActivity();
