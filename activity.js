@@ -22,7 +22,7 @@ class Activity {
       startTimerBtn.innerText = "COMPLETE!";
       show(logActivityBtn);
       return timerDisplay.innerText = "YOU ROCK!";
-    };
+    }
      minutes = minutes.toString().padStart(2, '0');
      seconds = seconds.toString().padStart(2, '0');
      timerDisplay.innerText = `${minutes}:${seconds}`}, 1000)
@@ -36,5 +36,5 @@ class Activity {
     var savedActivities = parseData() || [];
     savedActivities.push(this);
     stringifyData(savedActivities);
-  };
+  }
 };

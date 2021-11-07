@@ -78,8 +78,8 @@ function displayActivity() {
         </section>
         <section class="category-color-bar ${savedActivities[i].color}"></section>
       </section>`
-    };
-  };
+    }
+  }
 };
 
 function stringifyData(savedActivities) {
@@ -125,7 +125,7 @@ function startActivity() {
     updateView(currentActivityView, newActivityView);
     updateDescription();
     updateTimer();
-  };
+  }
 };
 
 function createActivity() {
@@ -161,7 +161,7 @@ function throwError() {
     show(secondsError);
   } if (!activityCategory) {
     show(categoryError);
-  };
+  }
   removeError();
 };
 
@@ -177,7 +177,7 @@ function removeError() {
     hide(secondsError);
   } if (activityCategory) {
     hide(categoryError);
-  };
+  }
 };
 
 function changeImgColor(whiteImg, activeImg) {
@@ -228,7 +228,6 @@ function activateMeditate() {
   addClass(meditateBtn, "meditate-button-color");
   changeImgColor(meditateImg, meditateImgActive);
   assignCategory("Meditate");
-
 };
 
 
