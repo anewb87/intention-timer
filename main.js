@@ -36,6 +36,12 @@ startActivityBtn.addEventListener("click", startActivity);
 startTimerBtn.addEventListener("click", start);
 logActivityBtn.addEventListener("click", saveCard);
 createActivtyBtn.addEventListener("click", goHome);
+minutesInput.addEventListener("input", preventCharacters);
+secondsInput.addEventListener("input", preventCharacters);
+
+function preventCharacters() {
+  this.value.replace(/[e\+\-]/gi, '')
+};
 
 function disableStart() {
   startTimerBtn.disabled = true;
@@ -47,7 +53,7 @@ function resetStart() {
 
 function goHome() {
   startTimerBtn.innerText = "START";
-  updateView(newActivityView, completedActivityView);
+  showHide(newActivityView, completedActivityView);
   clearInputValues();
   resetStart();
   hide(logActivityBtn);
@@ -64,7 +70,7 @@ function clearInputValues() {
 function saveCard() {
   currentActivity.saveToStorage();
   displayActivity();
-  updateView(completedActivityView, currentActivityView);
+  showHide(completedActivityView, currentActivityView);
   currentActivity = {};
 };
 
@@ -117,7 +123,7 @@ function hide(element) {
   element.classList.add("hidden");
 };
 
-function updateView(view, vanish) {
+function showHide(view, vanish) {
   show(view);
   hide(vanish);
 };
@@ -127,7 +133,7 @@ function startActivity() {
   throwError();
   if (activityCategory && activityInput.value && minutesInput.value && secondsInput.value ) {
     createActivity();
-    updateView(currentActivityView, newActivityView);
+    showHide(currentActivityView, newActivityView);
     updateDescription();
     updateTimer();
   }
@@ -185,18 +191,10 @@ function removeError() {
   }
 };
 
-function changeImgColor(whiteImg, activeImg) {
-  show(activeImg);
-  hide(whiteImg);
-};
-
 function removeColor() {
-  hide(studyImgActive);
-  show(studyImg);
-  hide(meditateImgActive);
-  show(meditateImg);
-  hide(exerciseImgActive);
-  show(exerciseImg);
+  showHide(studyImg, studyImgActive);
+  showHide(meditateImg, meditateImgActive);
+  showHide(exerciseImg, exerciseImgActive);
   removeClass(studyBtn, "study-button-color");
   removeClass(meditateBtn, "meditate-button-color");
   removeClass(exerciseBtn, "exercise-button-color");
@@ -222,24 +220,22 @@ function activateStudy() {
   removeColor();
   assignCategoryColor("study");
   addClass(studyBtn, "study-button-color");
-  changeImgColor(studyImg, studyImgActive);
+  showHide(studyImgActive, studyImg);
   assignCategory("Study");
 };
-
 
 function activateMeditate() {
   removeColor();
   assignCategoryColor("meditate");
   addClass(meditateBtn, "meditate-button-color");
-  changeImgColor(meditateImg, meditateImgActive);
+  showHide(meditateImgActive, meditateImg);
   assignCategory("Meditate");
 };
-
 
 function activateExercise() {
   removeColor();
   assignCategoryColor("exercise");
   addClass(exerciseBtn, "exercise-button-color");
-  changeImgColor(exerciseImg, exerciseImgActive);
+  showHide(exerciseImgActive, exerciseImg);
   assignCategory("Exercise");
 };
